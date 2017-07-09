@@ -7,6 +7,11 @@ namespace UGames.Game01
     /// <summary>
     /// フォーカス対象を管理するマネージャ。
     /// 入力を必要とするスクリプトはInputFocusManagerに自分をフォーカスに登録して、使い終わったら登録解除すること.
+    /// ex) 
+    /// var focusMgr = InputFocusManager.Instance;
+    /// focusMgr.Register(this); // 登録
+    /// if (focusMgr.GetCurrent() == this) {} //ボタン入力などを受けつける前にフォーカスが自分かチェック
+    /// focusMgr.Unregister(this); // 登録解除
     /// (フォーカスが自オブジェクトじゃないけど自分への入力を許容したいときに面倒だけど、我慢してクレメンス)
     /// </summary>
     public class InputFocusManager : SingletonMonoBehaviour<InputFocusManager>
